@@ -1,0 +1,4 @@
+import { StyleSheet, Switch, Text, View } from 'react-native';
+import { useAppTheme } from '../contexts/AppContext';
+export function ThemeToggle({ onError }) { const { colors, isDark, setTheme } = useAppTheme(); const change = async (value) => { const result = await setTheme(value ? 'dark' : 'light'); if (!result.ok) onError?.(); }; return <View style={styles.row}><View style={styles.copy}><Text style={[styles.title,{color:colors.text}]}>Dark mode</Text><Text style={[styles.subtitle,{color:colors.muted}]}>Apply the theme across every screen.</Text></View><Switch accessibilityLabel="Toggle dark mode" value={isDark} onValueChange={change} trackColor={{ false:colors.border, true:colors.primary }} thumbColor="#FFF"/></View>; }
+const styles = StyleSheet.create({ row:{ flexDirection:'row', alignItems:'center' }, copy:{ flex:1, paddingRight:16 }, title:{ fontSize:16, fontWeight:'700' }, subtitle:{ fontSize:13, lineHeight:19, marginTop:3 } });

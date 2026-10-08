@@ -1,0 +1,4 @@
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { lightColors } from '../theme/tokens';
+export function LoadingScreen() { return <View style={styles.container}><View style={styles.mark}><Text style={styles.markText}>PA</Text></View><Text style={styles.title}>Profile & Activity</Text><ActivityIndicator color={lightColors.primary} style={styles.spinner}/><Text style={styles.subtitle}>Restoring your preferences...</Text></View>; }
+const styles = StyleSheet.create({ container:{ flex:1, backgroundColor:lightColors.background, alignItems:'center', justifyContent:'center' }, mark:{ width:72, height:72, borderRadius:22, backgroundColor:lightColors.primary, alignItems:'center', justifyContent:'center' }, markText:{ color:'#FFF', fontSize:24, fontWeight:'900' }, title:{ color:lightColors.text, fontSize:22, fontWeight:'800', marginTop:18 }, spinner:{ marginTop:24 }, subtitle:{ color:lightColors.muted, fontSize:13, marginTop:10 } });
